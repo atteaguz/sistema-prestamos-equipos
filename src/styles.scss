@@ -1,0 +1,106 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+/* You can add global styles to this file, and also import other style files */
+
+// Paleta de colores
+:root {
+  --color-construction-yellow: #FFC107;
+  --color-construction-orange: #FF5722;
+  --color-construction-dark: #1A1A1A;
+  --color-construction-gray: #757575;
+  --color-construction-light: #F5F5F5;
+}
+
+// Botones primarios
+.mat-mdc-raised-button.mat-primary {
+  background-color: #FFC107 !important;
+  color: #1A1A1A !important;
+  
+  &:hover {
+    background-color: #e0a800 !important;
+  }
+}
+
+// Botones de acción en tablas
+.mat-mdc-icon-button:hover {
+  background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+// Tarjetas de bienvenida
+.welcome-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  border-left: 6px solid #FFC107;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 24px;
+  
+  h1 {
+    color: #1A1A1A;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+}
+
+// Tablas
+.mat-mdc-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+// Encabezados de tabla
+.mat-mdc-header-row {
+  background-color: #1A1A1A !important;
+  
+  .mat-mdc-header-cell {
+    color: white !important;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom-color: #FFC107 !important;
+  }
+}
+
+// Paginador
+.mat-mdc-paginator {
+  background: transparent;
+  margin-top: 16px;
+}

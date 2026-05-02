@@ -1,0 +1,35 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  background: #1A1A1A;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.08);
+  padding: 0 20px;
+  z-index: 100;
+}
+ 
+.footer-left {
+  font-size: 14px;
+  color: #F5F5F5;
+  font-weight: 500;
+
+}
+ 
+.footer-right button {
+  color: #F5F5F5;
+  transition: all 0.3s ease;
+}
+ 
+.footer-right button:hover {
+  transform: scale(1.2);
+  color: #F5F5F5;
+}
+ 
+.spacer {
+  flex: 1 1 auto;
+}
+ 

@@ -1,0 +1,235 @@
+$yellow: #FFC107;
+$orange: #FF5722;
+$dark: #1A1A1A;
+$gray: #757575;
+$light-gray: #F5F5F5;
+$white: #FFFFFF;
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+// Banner de bienvenida
+.welcome-banner {
+  background: linear-gradient(135deg, $dark 0%, darken($dark, 5%) 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: $white;
+  border-left: 6px solid $yellow;
+  
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: $yellow;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+  
+  .banner-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      
+      mat-icon {
+        color: $yellow;
+      }
+      
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Tarjetas de sección
+.section-card {
+  background: $white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  
+  &.alt-bg {
+    background: #FAFAFA;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $yellow;
+    padding-bottom: 12px;
+    
+    .section-icon {
+      color: $yellow;
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: $dark;
+      margin: 0;
+    }
+  }
+  
+  .section-content {
+    color: $gray;
+    line-height: 1.6;
+    
+    p {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+// Grid de valores
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+  
+  .value-item {
+    text-align: center;
+    padding: 16px;
+    background: $white;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    
+    mat-icon {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+      color: $yellow;
+      margin-bottom: 12px;
+    }
+    
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: $dark;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      font-size: 13px;
+      color: $gray;
+    }
+  }
+}
+
+// Mision Vision
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+// Logros
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  
+  .achievement {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba($yellow, 0.1);
+    border-radius: 8px;
+    
+    mat-icon {
+      color: $yellow;
+    }
+    
+    span {
+      font-weight: 500;
+      color: $dark;
+    }
+  }
+}
+
+// Contacto
+.contact-card {
+  background: $dark !important;
+  color: $white;
+  
+  .section-header {
+    border-bottom-color: $yellow;
+    
+    h2 {
+      color: $white;
+    }
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    
+    .contact-info {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      
+      mat-icon {
+        color: $yellow;
+      }
+      
+      div {
+        color: $white;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-banner {
+    padding: 24px;
+    
+    h1 {
+      font-size: 24px;
+    }
+    
+    .banner-stats {
+      gap: 16px;
+    }
+  }
+  
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid, .achievements-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

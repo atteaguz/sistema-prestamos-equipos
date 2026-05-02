@@ -1,0 +1,76 @@
+<div class="table-container">
+  <div class="table-header">
+    <button mat-raised-button color="primary" (click)="crearPrestamo()">
+      <mat-icon>add</mat-icon>
+      Nuevo Préstamo
+    </button>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ej: Martillo" #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="equipoNombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </th>
+        <td mat-cell *matCellDef="let row"> {{row.equipoNombre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="usuarioNombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+        <td mat-cell *matCellDef="let row"> {{row.usuarioNombre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
+        <td mat-cell *matCellDef="let row"> {{row.cantidad}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaPrestamo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Préstamo </th>
+        <td mat-cell *matCellDef="let row"> {{row.fechaPrestamo | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="estadoPrestamo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-chip [color]="row.estadoPrestamo === 'activo' ? 'warn' : 'primary'" highlighted>
+            {{row.estadoPrestamo | uppercase}}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button class="btn-delete"
+                  *ngIf="row.estadoPrestamo === 'activo'"
+                  (click)="devolverPrestamo(row)" 
+                  matTooltip="Devolver">
+            <mat-icon>assignment_return</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          No hay préstamos registrados
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

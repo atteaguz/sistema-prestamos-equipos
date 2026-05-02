@@ -1,0 +1,73 @@
+.table-container {
+  padding: 20px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.filter-field {
+  width: 300px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-acciones {
+  width: 120px;
+  text-align: center;
+}
+
+.mat-column-estado {
+  width: 100px;
+}
+
+.mat-column-role {
+  width: 100px;
+}
+
+.mat-column-id {
+  width: 80px;
+}
+
+// Botones de acción
+.btn-edit {
+  color: #FFC107;
+  
+  &:hover {
+    background-color: rgba(255, 193, 7, 0.1);
+  }
+}
+
+.btn-delete {
+  color: #FF5722;
+  
+  &:hover {
+    background-color: rgba(255, 87, 34, 0.1);
+  }
+}
+
+.btn-view {
+  color: #757575;
+  
+  &:hover {
+    background-color: rgba(117, 117, 117, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-field {
+    width: 100%;
+  }
+}

@@ -1,0 +1,71 @@
+<div class="table-container">
+  <div class="table-header">
+    <button mat-raised-button color="primary" (click)="crearModificarEquipo(null, false)">
+      <mat-icon>add</mat-icon>
+      Crear Equipo
+    </button>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filtrar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ej: Martillo" #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Equipo </th>
+        <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoriaNombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoría </th>
+        <td mat-cell *matCellDef="let row"> {{row.categoriaNombre}} <td>
+      </ng-container>
+
+      <ng-container matColumnDef="stockTotal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock Total </th>
+        <td mat-cell *matCellDef="let row"> {{row.stockTotal}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="stockDisponible">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Disponible </th>
+        <td mat-cell *matCellDef="let row"> 
+          <mat-chip [color]="row.stockDisponible > 0 ? 'primary' : 'warn'" highlighted>
+            {{row.stockDisponible}}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button class="btn-edit" (click)="crearModificarEquipo(row, true)" matTooltip="Editar">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="btn-delete" (click)="eliminarEquipo(row)" matTooltip="Eliminar">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          No hay datos que coincidan con el filtro "{{input.value}}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>
