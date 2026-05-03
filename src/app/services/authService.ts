@@ -25,7 +25,7 @@ export class AuthService {
   saveSession(resp: LoginResponse): void{
     console.log('Login correcto:', resp);
         localStorage.setItem('token', resp.token);
-        localStorage.setItem('usuario', resp.user.toString());
+        localStorage.setItem('usuario', resp.user?.name || resp.user?.email || 'Usuario');
         localStorage.setItem('rol', resp.role);
 
         //Actualizar el token en la señal

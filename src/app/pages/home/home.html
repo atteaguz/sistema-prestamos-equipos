@@ -30,6 +30,10 @@
         </button>
         <mat-menu #userMenu="matMenu">
           <button mat-menu-item disabled>
+           <mat-icon>person</mat-icon>
+            <span>Usuario: {{ authService.getUsuario() }}</span>
+          </button>
+          <button mat-menu-item disabled>
             <mat-icon>badge</mat-icon>
             <span>Rol: {{ authService.getRol() }}</span>
           </button>
