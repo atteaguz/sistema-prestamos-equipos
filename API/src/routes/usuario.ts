@@ -11,7 +11,7 @@ const ROUTES = Router();
 ROUTES.get(
   "/",
   checkJWT,
-  checkRole(["admin","user"]),
+  checkRole(["admin","user","funcionario"]),
   UsuarioController.getAllUsuarios
 );
 
@@ -19,7 +19,7 @@ ROUTES.get(
 ROUTES.get(
   "/:id",
   checkJWT,
-  checkRole(["admin","user"]),
+  checkRole(["admin","user","funcionario"]),
   UsuarioController.getUsuarioById
 );
 

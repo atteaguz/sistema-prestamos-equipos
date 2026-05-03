@@ -15,7 +15,7 @@ router.get("/", PrestamoController.getAllPrestamos);
 router.get("/:id", validateRequest({ params: IdParamDto }), PrestamoController.getPrestamosById);
 
 // Ruta para crear préstamos (Solo admin y user tienen acceso)
-router.post("/", [checkJWT, checkRole(["admin","user"]), validateRequest({ body: CreateUpdatePrestamoDto }), PrestamoController.createPrestamos]);
+router.post("/", [checkJWT, checkRole(["admin","user","funcionario"]), validateRequest({ body: CreateUpdatePrestamoDto }), PrestamoController.createPrestamos]);
 
 // Ruta para eliminar/devolver préstamos (Solo admin y user tienen acceso)
 router.post("/:id/devolver", [checkJWT, checkRole(["admin","user"]), validateRequest({ params: IdParamDto }), PrestamoController.devolverPrestamos]);
