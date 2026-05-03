@@ -37,7 +37,7 @@ Sistema de gestión desarrollado como asignacion de comprobacion INA - Costa Ric
 - LogIn ![Login](LogIn-Construprestamos.png)
 - Dashboard ![Dashboard](Dashboard-Construprestamos.png)
 - Categorias ![Categorias](Categorias-Construprestamos.png)
-- Equipos ![Equipos](Equipos-Construprestamos.png)
+- Equipos ![Equipos](Equipos-ConstruPrestamos.png)
 - Prestamos ![Prestamos](Prestamos-Construprestamos.png)
 
 ## Instalación y configuración
