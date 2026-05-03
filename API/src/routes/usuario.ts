@@ -7,7 +7,7 @@ import { checkJWT } from "../middleware/jwt";
 
 const ROUTES = Router();
 
-// Ruta para listar todos los usuarios (solo admin y user)
+// Ruta para listar todos los usuarios (todos)
 ROUTES.get(
   "/",
   checkJWT,
@@ -15,7 +15,7 @@ ROUTES.get(
   UsuarioController.getAllUsuarios
 );
 
-// Ruta para listar usuario por ID (solo admin y user)
+// Ruta para listar usuario por ID (todos)
 ROUTES.get(
   "/:id",
   checkJWT,

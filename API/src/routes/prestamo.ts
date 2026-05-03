@@ -14,7 +14,7 @@ router.get("/", PrestamoController.getAllPrestamos);
 // Ruta para listar préstamos por ID (Todos los usuarios tienen acceso)
 router.get("/:id", validateRequest({ params: IdParamDto }), PrestamoController.getPrestamosById);
 
-// Ruta para crear préstamos (Solo admin y user tienen acceso)
+// Ruta para crear préstamos (Todos)
 router.post("/", [checkJWT, checkRole(["admin","user","funcionario"]), validateRequest({ body: CreateUpdatePrestamoDto }), PrestamoController.createPrestamos]);
 
 // Ruta para eliminar/devolver préstamos (Solo admin y user tienen acceso)
