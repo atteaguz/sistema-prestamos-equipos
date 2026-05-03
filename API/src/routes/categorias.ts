@@ -9,7 +9,7 @@ import { checkRole } from "../middleware/role";
 const ROUTES = Router();
 
 // Ruta para listar todas categorías (Todos los usuarios tienen acceso)
-ROUTES.get("/",CategoriaController.getAllCategorias);
+ROUTES.get("/",checkRole(["admin","user"]),CategoriaController.getAllCategorias);
 
 // Ruta para listar categorías por ID (Todos los usuarios tienen acceso)
 ROUTES.get(
