@@ -32,6 +32,10 @@ Sistema de gestión desarrollado como asignacion de comprobacion INA - Costa Ric
 - ✅ Dashboard/Inicio
 - ✅ Diseño responsivo con Angular Material
 
+## Capturas
+
+-LogIn ![Login](LogIn-Construprestamos.png)
+
 ## Instalación y configuración
 
 ### Requisitos previos
