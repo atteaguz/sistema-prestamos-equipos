@@ -4,7 +4,7 @@
 José Agustín Zelaya Solórzano
   - GitHub: @atteaguz
 
-Sistema de gestión desarrollado como asignacion de comprobacion INA - Costa Rica.
+Sistema de gestión desarrollado como asignacion de comprobacion INA - Costa Rica, 2026.
 
 ## Tecnologías utilizadas
 

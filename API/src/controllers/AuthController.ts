@@ -5,7 +5,6 @@ import * as jwt from "jsonwebtoken";
 import config from "../config/config";
 
 export class AuthController {
-  //Login
   static login = async (req: Request, res: Response) => {
     try {
       const { username, password } = req.body;
@@ -32,10 +31,8 @@ export class AuthController {
         { expiresIn: "180m" },
       );
 
-      //Devolver token por header
       res.setHeader("token", token);
 
-      //Respuesta en el body
       return res
         .status(200)
         .json({

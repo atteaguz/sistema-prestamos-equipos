@@ -4,6 +4,7 @@ import { Equipo } from "../entities/Equipo";
 import { EquipoMapper } from "../mappers/EquipoMapper";
 
 export class EquipoController {
+  
   // Metodo para obtener todos los equipos
   static getAllEquipos = async (req: Request, res: Response) => {
     try {

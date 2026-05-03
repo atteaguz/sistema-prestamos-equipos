@@ -5,7 +5,7 @@ import { Equipo } from "../entities/Equipo";
 import { PrestamoMapper } from "../mappers/PrestamoMapper";
 
 export class PrestamoController {
-  // Metodo para obtener todos los préstamos
+  // Metodo para obtener todos los prestamos
   static getAllPrestamos = async (req: Request, res: Response) => {
     try {
       const repo = AppDataSource.getRepository(Prestamo);
@@ -19,7 +19,7 @@ export class PrestamoController {
     }
   };
 
-  // Metodo para obtener un préstamo por ID
+  // Metodo para obtener un prestamo por ID
   static getPrestamosById = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
@@ -39,7 +39,7 @@ export class PrestamoController {
     }
   };
 
-  // Metodo para crear un nuevo préstamo
+  // Metodo para crear un nuevo prestamo
   static createPrestamos = async (req: Request, res: Response) => {
     try {
       const { equipoId, usuarioId, cantidad, fechaPrestamo } = req.body;
@@ -70,7 +70,7 @@ export class PrestamoController {
     }
   };
 
-  // Metodo para devolver un préstamo
+  // Metodo para devolver un prestamo
   static devolverPrestamos = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;

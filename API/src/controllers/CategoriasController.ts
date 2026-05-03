@@ -94,7 +94,7 @@ class CategoriaController {
       }
 
       // Verificar si el nuevo nombre ya existe en otra categoría
-    const categoriaExistente = await repo.findOne({
+      const categoriaExistente = await repo.findOne({
       where: {
         nombre: nombre,
         estado: true,
@@ -107,14 +107,11 @@ class CategoriaController {
           .json({ message: "Ya existe una categoría con ese nombre" });
       }
 
-      // Actualizar los campos de la categoría
       categoria.nombre = nombre;
       categoria.descripcion = descripcion;
 
-      // Guardar los cambios en la base de datos
       await repo.save(categoria);
 
-      // Enviar la categoría actualizada
       return res.status(200).json(CategoriaMapper.toResponseDto(categoria));
     } catch (error) {
       return res
@@ -123,7 +120,7 @@ class CategoriaController {
     }
   };
 
-  // Metodo para eliminar una categoría (Borrado logico)
+  // Metodo para borrar una categoría (borrado logico)
   static deleteCategorias = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
@@ -135,10 +132,10 @@ class CategoriaController {
         return res.status(404).json({ message: "Categoría no encontrada" });
       }
       
-      // Realizar el borrado lógico (cambiar el estado a false)
+      // borrado lógico
       categoria.estado = false;
       
-      // Guardar los cambios en la base de datos
+      // Guardra los cambios en la base de datos
       await repo.save(categoria);
 
       return res
