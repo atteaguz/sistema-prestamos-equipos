@@ -15,6 +15,7 @@ ROUTES.get("/",checkRole(["admin","user"]),CategoriaController.getAllCategorias)
 ROUTES.get(
   "/:id",
   [
+    checkRole(["admin","user"]),
     validateRequest({ params: IdParamDto }),
   ],
   CategoriaController.getCategoriaById,
